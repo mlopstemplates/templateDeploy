@@ -17,7 +17,7 @@ inputs:
     description: "JSON file of arm template to deploy ml workspace."
     required: true
     default: "ml_deploy.json"
-  armtemplateparams_file:
+  ml_armtemplateparams_file:
     description: "JSON file of am template to params deploy function app."
     required: true
     default: "ml_deploy.params.json"
