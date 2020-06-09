@@ -6,13 +6,21 @@ inputs:
     description: "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS"
     required: true
   armtemplate_file:
-    description: "JSON file of am template to deploy."
+    description: "JSON file of am template to deploy function app."
     required: true
     default: "deploy.json"
   armtemplateparams_file:
-    description: "JSON file of am template to params deploy."
+    description: "JSON file of am template to params deploy function app."
     required: true
     default: "deploy.params.json"
+  ml_armtemplate_file:
+    description: "JSON file of arm template to deploy ml workspace."
+    required: true
+    default: "ml_deploy.json"
+  armtemplateparams_file:
+    description: "JSON file of am template to params deploy function app."
+    required: true
+    default: "ml_deploy.params.json"
   resource_group:
     description: "resource group which is to be used"
     required: true
