@@ -68,12 +68,12 @@ def main():
     mask_parameter(parameter=azure_credentials.get("subscriptionId", ""))
     
     # Loading parameters file
-    print("::debug::Loading parameters file")
-    template_file_file_path = os.path.join(".cloud", ".azure", template_file)
-    template_params_file_path = os.path.join(".cloud", ".azure", template_params_file)
+    #print("::debug::Loading parameters file")
+    #template_file_file_path = os.path.join(".cloud", ".azure", template_file)
+    #template_params_file_path = os.path.join(".cloud", ".azure", template_params_file)
     
-    ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
-    ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
+   # ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
+   # ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
 
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
@@ -87,10 +87,10 @@ def main():
     except Exception as ex:
         print(ex)
     print("deploying ML workspace----")
-    print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
+    print(deploy_machineLearningWorkspace(ml_template_file ,ml_template_params , resource_group))
     print("ML workspace deployment done")
     print("Deploying Function App-----")
-    print(deploy_functionApp(template_file_file_path ,template_params_file_path , resource_group))
+    print(deploy_functionApp(template_file ,template_params , resource_group))
 
 
 if __name__ == "__main__":
