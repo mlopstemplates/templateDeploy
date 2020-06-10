@@ -64,7 +64,7 @@ def main():
     print("::debug::Masking parameters")
     mask_parameter(parameter=azure_credentials.get("tenantId", ""))
     mask_parameter(parameter=azure_credentials.get("clientId", ""))
-    mask_parameter(parameter=azure_credentials.get("clientSecret", ""))
+    mask_parameter(parameter=str(azure_credentials.get("clientSecret", "")))
     mask_parameter(parameter=azure_credentials.get("subscriptionId", ""))
     
     # Loading parameters file
