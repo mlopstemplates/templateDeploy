@@ -87,10 +87,10 @@ def main():
     except Exception as ex:
         print(ex)
     print("deploying ML workspace----")
-    print(deploy_machineLearningWorkspace(ml_template_file ,ml_template_params_file , resource_group))
+    #print(deploy_machineLearningWorkspace(ml_template_file ,ml_template_params_file , resource_group))
     print("ML workspace deployment done")
     print("Deploying Function App-----")
-    print(deploy_functionApp(template_file ,template_params_file , resource_group))
+    #print(deploy_functionApp(template_file ,template_params_file , resource_group))
 
 
 if __name__ == "__main__":
