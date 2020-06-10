@@ -81,6 +81,7 @@ def main():
     
     command = ('az login --service-principal --username {APP_ID} --password {PASSWORD} --tenant {TENANT_ID}').format(
             APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
+    print(command)
     try:
         app_create = subprocess.check_output(command, shell=True)
         print(app_create)
