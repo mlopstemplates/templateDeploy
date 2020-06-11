@@ -57,7 +57,9 @@ def convert_to_markdown(metrics_dict):
 
 
 def mask_parameter(parameter):
-    print(f"::add-mask::{parameter.replaceAll("(","\(")}")
+    parameter=parameter.replaceAll("(","\(")
+    print(parameter)
+    print(f"::add-mask::{parameter}")
 
 
 def load_pipeline_yaml(workspace, pipeline_yaml_file):
