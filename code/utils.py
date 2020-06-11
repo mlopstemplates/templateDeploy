@@ -58,7 +58,6 @@ def convert_to_markdown(metrics_dict):
 
 def mask_parameter(parameter):
     print("parameter")
-    parameter=parameter.replace("`","\\`")
     print(f"::add-mask::{parameter}")
 
 
