@@ -70,8 +70,8 @@ def main():
     
     # Loading parameters file
     #print("::debug::Loading parameters file")
-    #template_file_file_path = os.path.join(".cloud", ".azure", template_file)
-    #template_params_file_path = os.path.join(".cloud", ".azure", template_params_file)
+    template_file_file_path = os.path.join(".cloud", ".azure", template_file)
+    template_params_file_path = os.path.join(".cloud", ".azure", template_params_file)
     
     ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
     ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
@@ -91,8 +91,10 @@ def main():
     print("print data")
     print(ml_template_file_file_path)
     print(ml_template_params_file_path)
+    print(template_file_file_path)
+    print(template_params_file_path)
     print("deploying ML workspace----")
-    #print(deploy_machineLearningWorkspace(ml_template_file ,ml_template_params_file , resource_group))
+    #print(deploy_machineLearningWorkspace(ml_template_file_path ,ml_template_params_file_path , resource_group))
     print("ML workspace deployment done")
     print("Deploying Function App-----")
     #print(deploy_functionApp(template_file ,template_params_file , resource_group))
