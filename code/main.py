@@ -78,9 +78,9 @@ def main():
 
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
-    service_principal_password=azure_credentials.get("clientSecret", "").replace("`","\\`")
+    service_principal_password=azure_credentials.get("clientSecret", "")
     
-    command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
+    command = ("az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}").format(
             APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
     print(command)
     try:
@@ -94,7 +94,7 @@ def main():
     print(template_file_file_path)
     print(template_params_file_path)
     print("deploying ML workspace----")
-    print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
+    #print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
     print("ML workspace deployment done")
     print("Deploying Function App-----")
     #print(deploy_functionApp(template_file_file_path,template_params_file_path , resource_group))
