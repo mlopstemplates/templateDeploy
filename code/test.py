@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
  
-azure_credentials = { "clientId": "ab96606e-49a7-45d3-a575-5172e11fdb7f", "clientSecret": "^s:e6b4uCMXxN168t+i?[f](`E~8YeAP", "subscriptionId": "4847477c-3812-4667-ad10-174e0eab74d4", "tenantId": "2d1aba9c-5938-402b-90b9-72a284a4bced"}
+azure_credentials = { "clientId": "ab96606e-49a7-45d3-a575-5172e11fdb7f", "clientSecret": "^s:e6b4uCMXxN168t+i?[f](\\`E~8YeAP", "subscriptionId": "4847477c-3812-4667-ad10-174e0eab74d4", "tenantId": "2d1aba9c-5938-402b-90b9-72a284a4bced"}
  
 tenant_id=azure_credentials.get("tenantId", "")
 service_principal_id=azure_credentials.get("clientId", "")
