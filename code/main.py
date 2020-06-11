@@ -96,7 +96,7 @@ def main():
     print(template_file_file_path)
     print(template_params_file_path)
     print("deploying ML workspace----")
-    #print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
+    print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
     print("ML workspace deployment done")
     print("Deploying Function App-----")
     print(deploy_functionApp(template_file_file_path,template_params_file_path , resource_group))
