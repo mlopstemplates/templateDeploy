@@ -76,6 +76,7 @@ def main():
     ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
     ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
     temp="^s:e6b4uCMXxN168t+i?[f](`E~8YeAP"
+    mask_parameter(temp)
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
     service_principal_password=azure_credentials.get("clientSecret", "")
