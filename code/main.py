@@ -59,13 +59,13 @@ def main():
         keys=["tenantId", "clientId", "clientSecret"],
         message="Required parameter(s) not found in your azure credentials saved in AZURE_CREDENTIALS secret for logging in to the workspace. Please provide a value for the following key(s): "
     )
-    print(azure_credentials.get("clientSecret", ""))
+    #secret_unmasked=azure_credentials.get("clientSecret", "").replace("`","\\`")
     print("printed  secret")
     # Mask values
     print("::debug::Masking parameters")
     mask_parameter(parameter=azure_credentials.get("tenantId", ""))
     mask_parameter(parameter=azure_credentials.get("clientId", ""))
-    mask_parameter(parameter=azure_credentials.get("clientSecret", ""))
+    #mask_parameter(parameter=azure_credentials.get("clientSecret", ""))
     mask_parameter(parameter=azure_credentials.get("subscriptionId", ""))
     
     # Loading parameters file
@@ -78,9 +78,9 @@ def main():
 
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
-    service_principal_password=azure_credentials.get("clientSecret", "")
+    service_principal_password=azure_credentials.get("clientSecret", "").replace("`","\\`")
     
-    command = ('az login --service-principal --username {APP_ID} --password {PASSWORD} --tenant {TENANT_ID}').format(
+    command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
             APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
     print(command)
     try:
