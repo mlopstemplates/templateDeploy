@@ -75,14 +75,14 @@ def main():
     
     ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
     ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
-
+    temp="^s:e6b4uCMXxN168t+i?[f](`E~8YeAP"
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
     service_principal_password=azure_credentials.get("clientSecret", "")
     print(service_principal_password)
     print("here")
     command = ('az login --service-principal --username {APP_ID} --password {PASSWORD} --tenant {TENANT_ID}').format(
-          APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
+          APP_ID=service_principal_id, PASSWORD=temp, TENANT_ID=tenant_id)
     print(command)
     try:
        app_create = subprocess.check_output(command, shell=True)
