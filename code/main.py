@@ -39,10 +39,10 @@ def deploy_machineLearningWorkspace(ml_template_path, ml_parameters_file_path,re
 def main():
     # # Loading input values
     # print("::debug::Loading input values")
-    template_file = os.environ.get("INPUT_ARMTEMPLATE_FILE", default="deploy.json")
-    template_params_file = os.environ.get("INPUT_ARMTEMPLATEPARAMS_FILE", default="deploy.params.json")
-    ml_template_file = os.environ.get("INPUT_ML_ARMTEMPLATE_FILE", default="ml_deploy.json")
-    ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.params.json")
+    template_file = os.environ.get("INPUT_ARMTEMPLATE_FILE", default="deploya.json")
+    template_params_file = os.environ.get("INPUT_ARMTEMPLATEPARAMS_FILE", default="deploy.parama.json")
+    ml_template_file = os.environ.get("INPUT_ML_ARMTEMPLATE_FILE", default="ml_deploya.json")
+    ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.paramsa.json")
     azure_credentials = os.environ.get("INPUT_AZURE_CREDENTIALS", default="{}")
     resource_group = os.environ.get("INPUT_RESOURCE_GROUP", default="newresource_group")
 
