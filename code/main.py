@@ -86,7 +86,7 @@ def main():
     print(command)
     try:
        app_create = subprocess.check_output(command, shell=True)
-        print(app_create)
+       print(app_create)
     except Exception as ex:
        print(ex)
     print("print data")
