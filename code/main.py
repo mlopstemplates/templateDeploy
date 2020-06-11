@@ -73,8 +73,8 @@ def main():
     #template_file_file_path = os.path.join(".cloud", ".azure", template_file)
     #template_params_file_path = os.path.join(".cloud", ".azure", template_params_file)
     
-   # ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
-   # ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
+    ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
+    ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
 
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
@@ -88,6 +88,9 @@ def main():
         print(app_create)
     except Exception as ex:
         print(ex)
+    print("print data")
+    print(ml_template_file_file_path)
+    print(ml_template_params_file_path)
     print("deploying ML workspace----")
     #print(deploy_machineLearningWorkspace(ml_template_file ,ml_template_params_file , resource_group))
     print("ML workspace deployment done")
