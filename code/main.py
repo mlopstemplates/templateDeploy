@@ -41,8 +41,8 @@ def main():
     # print("::debug::Loading input values")
     template_file = os.environ.get("INPUT_ARMTEMPLATE_FILE", default="deploy.json")
     template_params_file = os.environ.get("INPUT_ARMTEMPLATEPARAMS_FILE", default="deploy.params.json")
-    ml_template_file = os.environ.get("INPUT_ARMTEMPLATE_FILE", default="ml_deploy.json")
-    ml_template_params_file = os.environ.get("INPUT_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.params.json")
+    ml_template_file = os.environ.get("INPUT_ML_ARMTEMPLATE_FILE", default="ml_deploy.json")
+    ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.params.json")
     azure_credentials = os.environ.get("INPUT_AZURE_CREDENTIALS", default="{}")
     resource_group = os.environ.get("INPUT_RESOURCE_GROUP", default="newresource_group")
 
