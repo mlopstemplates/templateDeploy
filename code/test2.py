@@ -29,6 +29,10 @@ def main():
     json_object["parameters"]["GitHubBranch"]["value"]=Repo_NAME
     json.dump(json_object, template_file_json) 
     template_file_json.close() 
+    template_file_jsonR2 = open(template_file_file_path, "r")
+    json_object2 = json.load(template_file_jsonR2)
+    print(json_object2)
+    template_file_jsonR2.close()
     
 
     #print(json_objectR)
