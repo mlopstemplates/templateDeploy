@@ -49,26 +49,12 @@ def update_templateParameters(template_params_file):
     print(json_object2)
     template_file_jsonR2.close()
  
-def deploy_machineLearningWorkspace(ml_template_path, ml_parameters_file_path,resource_group):
-    try:
-        command = ('az group deployment create -g {resource_group} --template-file "{ml_template_path}" --parameters "{ml_parameters_file_path}" -o json').format(
-            ml_template_path=ml_template_path, ml_parameters_file_path=ml_parameters_file_path, resource_group=resource_group)
-        print(command)
-        workspace_create = subprocess.check_output(command, shell=True)
-        workspace_create_json = json.loads(workspace_create)
-        return workspace_create_json # may here return just the values required to be returned
-    except Exception as ex:
-        raise ActionDeploymentError(ex)
-        
-
     
 def main():
     # # Loading input values
     # print("::debug::Loading input values")
     template_file = os.environ.get("INPUT_ARMTEMPLATE_FILE", default="deploya.json")
     template_params_file = os.environ.get("INPUT_ARMTEMPLATEPARAMS_FILE", default="deploy.parama.json")
-    ml_template_file = os.environ.get("INPUT_ML_ARMTEMPLATE_FILE", default="ml_deploya.json")
-    ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.paramsa.json")
     azure_credentials = os.environ.get("INPUT_AZURE_CREDENTIALS", default="{}")
     resource_group = os.environ.get("INPUT_RESOURCE_GROUP", default="newresource_group")
  
@@ -102,8 +88,6 @@ def main():
     
     ml_template_file_file_path = os.path.join(".cloud", ".azure", ml_template_file)
     ml_template_params_file_path = os.path.join(".cloud", ".azure", ml_template_params_file)
-    temp=r"^s:e6b4uCMXxN168t+i?[f](\\`E~8YeAP"
-    #mask_parameter(temp)
     tenant_id=azure_credentials.get("tenantId", "")
     service_principal_id=azure_credentials.get("clientId", "")
     service_principal_password=azure_credentials.get("clientSecret", "").replace("`","\\`")
