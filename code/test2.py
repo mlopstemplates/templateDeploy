@@ -15,9 +15,9 @@ def main():
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
-    print("here")
-    st=os.stat(template_file_file_path)
-    temp = subprocess.Popen(['ls','-a',template_file_file_path], stdout = subprocess.PIPE)
+    print(template_file_file_path)
+    os.chmod(template_file_file_path ,stat.S_IRWXU | stat.S_IRWXO | stat.S_IRWXG )
+    temp = subprocess.Popen(['ls','-a'], stdout = subprocess.PIPE)
     print(temp)
     #template_file_json = open(template_file_file_path, "w")
     #json_object = json.load(template_file_json)
