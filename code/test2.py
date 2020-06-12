@@ -15,7 +15,7 @@ def main():
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
-    command='chmod+x '+template_file_file_path
+    command='chmod +x '+template_file_file_path
     try:
        app_create = subprocess.check_output(command, shell=True)
        print(app_create)
