@@ -15,7 +15,10 @@ def main():
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
+    print("here")
+    os.stat(template_file_file_path)
     os.chmod(template_file_file_path,0o0777)
+    os.stat(template_file_file_path)
     template_file_json = open(template_file_file_path, "w")
     json_object = json.load(template_file_json)
     #json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
