@@ -15,7 +15,7 @@ def main():
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
     print(template_file_file_path)
-    os.chmod(template_file_file_path,stat.S_IRWXU)
+    os.chmod(template_file_file_path,stat.S_IRWXO)
     template_file_json = open(template_file_file_path, "w")
     json_object = json.load(template_file_json)
     #json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
