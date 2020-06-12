@@ -23,7 +23,7 @@ def main():
     
     template_file_jsonR = open(template_file_file_path, "r")
     json_objectR = json.load(template_file_jsonR)
-    template_file_json.close() 
+    template_file_jsonR.close() 
     print(json_objectR)
 
 if __name__ == "__main__":
