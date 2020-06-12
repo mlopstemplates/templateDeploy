@@ -22,6 +22,28 @@ def deploy_functionApp(template_path, parameters_file_path,resource_group):
         return app_create_json # may here return just the values required to be returned
     except Exception as ex:
         raise ActionDeploymentError(ex)
+        
+ def update_templateParameters(template_params_file,pat_token,repo_name,subscriptionID):
+    template_file_jsonR = open(template_file_file_path, "r")
+    json_object = json.load(template_file_jsonR)
+    template_file_jsonR.close()
+    
+    json_object["parameters"]["subscriptionID"]={}
+    json_object["parameters"]["subscriptionID"]["value"]=subscriptionID
+    
+    json_object["parameters"]["GitHubRepo"]={}
+    json_object["parameters"]["GitHubRepo"]["value"]=repo_name
+    
+    json_object["parameters"]["PatToken"]={}
+    json_object["parameters"]["PatToken"]["value"]=pat_token
+    
+    template_file_json = open(template_file_file_path, "w")
+    json.dump(json_object, template_file_json) 
+    template_file_json.close() 
+    template_file_jsonR2 = open(template_file_file_path, "r")
+    json_object2 = json.load(template_file_jsonR2)
+    print(json_object2)
+    template_file_jsonR2.close()
  
 def deploy_machineLearningWorkspace(ml_template_path, ml_parameters_file_path,resource_group):
     try:
@@ -45,7 +67,12 @@ def main():
     ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.paramsa.json")
     azure_credentials = os.environ.get("INPUT_AZURE_CREDENTIALS", default="{}")
     resource_group = os.environ.get("INPUT_RESOURCE_GROUP", default="newresource_group")
-
+    
+    pat_token="SAmpleToken"
+    repo_name="SampleRepo"
+    subscriptionID="SampleSubscription"
+    
+    update_templateParameters(template_params_file,pat_token,repo_name,subscriptionID)
     try:
         azure_credentials = json.loads(azure_credentials)
     except JSONDecodeError:
@@ -82,23 +109,16 @@ def main():
     service_principal_password=azure_credentials.get("clientSecret", "").replace("`","\\`")
     print(service_principal_password)
     print("here")
-    command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
-          APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
-    print(command)
-    try:
-       app_create = subprocess.check_output(command, shell=True)
-       print(app_create)
-    except Exception as ex:
-       print(ex)
-    print("print data")
-    print(ml_template_file_file_path)
-    print(ml_template_params_file_path)
-    print(template_file_file_path)
-    print(template_params_file_path)
-    print("deploying ML workspace----")
+    #command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
+    #      APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
+    #print(command)
+    #try:
+    #   app_create = subprocess.check_output(command, shell=True)
+    #   print(app_create)
+    #except Exception as ex:
+    #   print(ex)
+    
     #print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
-    print("ML workspace deployment done")
-    print("Deploying Function App-----")
     #print(deploy_functionApp(template_file_file_path,template_params_file_path , resource_group))
 
 
