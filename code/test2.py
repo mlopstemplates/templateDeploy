@@ -3,7 +3,6 @@ import json
 import time
 import subprocess
 from json import JSONDecodeError
-from utils import AMLConfigurationException, ActionDeploymentError, AMLExperimentConfigurationException, required_parameters_provided, mask_parameter, convert_to_markdown, load_pipeline_yaml, load_runconfig_yaml, load_runconfig_python
 
 
 def main():
@@ -12,6 +11,7 @@ def main():
     PAT_TOKEN="SAmpleToken"
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
+    print(template_file)
     template_file_json = open(template_file, "w")
     json_object = json.load(template_file_json)
     json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
