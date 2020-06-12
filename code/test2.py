@@ -24,9 +24,9 @@ def main():
     template_file_jsonR.close()
     
     template_file_json = open(template_file_file_path, "w")
-    json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
-    json_object["parameters"]["PatToken"]["value"]=PAT_TOKEN
-    json_object["parameters"]["GitRepo"]["value"]=Repo_NAME
+    #json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
+    #json_object["parameters"]["PatToken"]["value"]=PAT_TOKEN
+    json_object["parameters"]["GitHubBranch"]["value"]=Repo_NAME
     json.dump(json_object, template_file_json) 
     template_file_json.close() 
     
