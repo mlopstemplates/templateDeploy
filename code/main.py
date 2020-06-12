@@ -92,17 +92,17 @@ def main():
     service_principal_password=azure_credentials.get("clientSecret", "").replace("`","\\`")
     print(service_principal_password)
     print("here")
-    #command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
-    #      APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
-    #print(command)
-    #try:
-    #   app_create = subprocess.check_output(command, shell=True)
-    #   print(app_create)
-    #except Exception as ex:
-    #   print(ex)
+    command = ('az login --service-principal --username {APP_ID} --password \"{PASSWORD}\" --tenant {TENANT_ID}').format(
+          APP_ID=service_principal_id, PASSWORD=service_principal_password, TENANT_ID=tenant_id)
+    print(command)
+    try:
+       app_create = subprocess.check_output(command, shell=True)
+       print(app_create)
+    except Exception as ex:
+       print(ex)
     
     #print(deploy_machineLearningWorkspace(ml_template_file_file_path ,ml_template_params_file_path , resource_group))
-    #print(deploy_functionApp(template_file_file_path,template_params_file_path , resource_group))
+    print(deploy_functionApp(template_file_file_path,template_params_file_path , resource_group))
 
 
 if __name__ == "__main__":
