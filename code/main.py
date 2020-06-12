@@ -23,7 +23,10 @@ def deploy_functionApp(template_path, parameters_file_path,resource_group):
     except Exception as ex:
         raise ActionDeploymentError(ex)
         
-def update_templateParameters(template_params_file,pat_token,repo_name,subscriptionID):
+def update_templateParameters(template_params_file):
+    pat_token=os.environ.get("INPUT_PAT_TOKEN", default="")
+    repo_name=os.environ.get("INPUT_GITHUB_REPO", default="")
+    subscriptionID=os.environ.get("INPUT_SUBSCRIPTION_ID", default="")
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
     template_file_jsonR = open(template_file_file_path, "r")
     json_object = json.load(template_file_jsonR)
@@ -68,12 +71,8 @@ def main():
     ml_template_params_file = os.environ.get("INPUT_ML_ARMTEMPLATEPARAMS_FILE", default="ml_deploy.paramsa.json")
     azure_credentials = os.environ.get("INPUT_AZURE_CREDENTIALS", default="{}")
     resource_group = os.environ.get("INPUT_RESOURCE_GROUP", default="newresource_group")
-    
-    pat_token="SAmpleToken"
-    repo_name="SampleRepo"
-    subscriptionID="SampleSubscription"
-    
-    update_templateParameters(template_params_file,pat_token,repo_name,subscriptionID)
+ 
+    update_templateParameters(template_params_file)
     try:
         azure_credentials = json.loads(azure_credentials)
     except JSONDecodeError:
