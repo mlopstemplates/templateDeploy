@@ -46,6 +46,7 @@ def update_templateParameters(template_params_file):
     template_file_json.close() 
     template_file_jsonR2 = open(template_file_file_path, "r")
     json_object2 = json.load(template_file_jsonR2)
+    print("printing updated parameters file")
     print(json_object2)
     template_file_jsonR2.close()
  
