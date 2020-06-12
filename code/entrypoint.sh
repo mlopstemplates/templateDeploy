@@ -3,4 +3,4 @@
 set -e
 
 ls -la
-python /code/test.py
+python /code/main.py
