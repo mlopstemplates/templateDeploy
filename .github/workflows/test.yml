@@ -25,4 +25,7 @@ jobs:
           armtemplateparams_file: "deploy.params.json"
           ml_armtemplate_file: "ml_deploy.json"
           ml_armtemplateparams_file: "ml_deploy.params.json"
+          pat_token: "testPAtToken"
+          github_repo: "TestRepo"
+          subscription_id: "TestRepo"
           resource_group: "Test1"
