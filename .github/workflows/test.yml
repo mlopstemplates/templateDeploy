@@ -24,6 +24,6 @@ jobs:
           armtemplate_file: "deploy.json"
           armtemplateparams_file: "deploy.params.json"
           pat_token: "testPAtToken"
-          github_repo: "TestRepo"
-          subscription_id: "TestRepo"
+          github_repo: "mlopstemplates/templateDeploy"
+          subscription_id: "4847477c-3812-4667-ad10-174e0eab74d4"
           resource_group: "Test1"
