@@ -15,27 +15,22 @@ def main():
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
-    command='chmod +rwx '+template_file_file_path
-    try:
-       execute = subprocess.check_output(command, shell=True)
-       print(execute)
-    except Exception as ex:
-       print(ex)
-    print(template_file_file_path)
+
     #os.chmod(template_file_file_path ,stat.S_IRWXU | stat.S_IRWXO | stat.S_IRWXG )
     #temp = subprocess.Popen(['ls','-a'], stdout = subprocess.PIPE)
     #print(temp)
-    template_file_json = open(template_file_file_path, "w")
-    json_object = json.load(template_file_json)
-    #json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
-    #json_object["parameters"]["PatToken"]["value"]=PAT_TOKEN
-    #json_object["parameters"]["GitRepo"]["value"]=Repo_NAME
-    #json.dump(json_object, template_file_json) 
-    #template_file_json.close() 
+    template_file_jsonR = open(template_file_file_path, "r")
+    json_object = json.load(template_file_jsonR)
+    template_file_jsonR.close()
     
-    #template_file_jsonR = open(template_file_file_path, "r")
-    #json_objectR = json.load(template_file_jsonR)
-    #template_file_jsonR.close() 
+    template_file_json = open(template_file_file_path, "w")
+    json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
+    json_object["parameters"]["PatToken"]["value"]=PAT_TOKEN
+    json_object["parameters"]["GitRepo"]["value"]=Repo_NAME
+    json.dump(json_object, template_file_json) 
+    template_file_json.close() 
+    
+
     #print(json_objectR)
 
 if __name__ == "__main__":
