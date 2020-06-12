@@ -11,8 +11,8 @@ def main():
     PAT_TOKEN="SAmpleToken"
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
-    print(template_file)
-    template_file_json = open(template_file, "w")
+    template_file_file_path = os.path.join(".cloud", ".azure", template_file)
+    template_file_json = open(template_file_file_path, "w")
     json_object = json.load(template_file_json)
     json_object["parameters"]["subscriptionID"]["value"]=SubscriptionID
     json_object["parameters"]["PatToken"]["value"]=PAT_TOKEN
@@ -20,7 +20,7 @@ def main():
     json.dump(json_object, template_file_json) 
     template_file_json.close() 
     
-    template_file_jsonR = open(template_file, "r")
+    template_file_jsonR = open(template_file_file_path, "r")
     json_objectR = json.load(template_file_jsonR)
     template_file_json.close() 
     print(json_objectR)
