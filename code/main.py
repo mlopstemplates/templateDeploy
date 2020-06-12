@@ -24,6 +24,7 @@ def deploy_functionApp(template_path, parameters_file_path,resource_group):
         raise ActionDeploymentError(ex)
         
 def update_templateParameters(template_params_file,pat_token,repo_name,subscriptionID):
+    template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
     template_file_jsonR = open(template_file_file_path, "r")
     json_object = json.load(template_file_jsonR)
     template_file_jsonR.close()
