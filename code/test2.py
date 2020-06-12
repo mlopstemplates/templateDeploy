@@ -15,7 +15,7 @@ def main():
     Repo_NAME="SampleRepo"
     SubscriptionID="SampleSubscription"
     template_file_file_path = os.path.join(".cloud", ".azure", template_params_file)
-    command='chmod +w '+template_file_file_path
+    command='chmod +rwx '+template_file_file_path
     try:
        execute = subprocess.check_output(command, shell=True)
        print(execute)
